@@ -1,0 +1,42 @@
+/*
+Janes Heuberger
+18.04.2017
+schalter_2
+
+Compiler Option 0s
+
+AVR Studio 4
+*/
+
+#include <avr/io.h>
+#include <util/delay.h>
+
+
+
+	int main (void) 
+	{
+		int segmente[] ={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F, 0x77,0x7C,0x39,0x5E,0x79,0x71,0x6F,0x76,0x06,0x1F,0x38,0x3F,0x73};
+		//					a	 b	  c    d    e    f    g	   dp	0	 1	   2	3	 4	 5	  6	    7   8	9	 a	   b	c   d     e   f    g    h     i   j    l    o     p
+
+
+
+
+		
+		DDRC = 0xFF; //Port C out
+
+		
+		int i;
+
+		 while(1)
+		{
+		
+			for(i=0;i<31;i++)
+			{
+				PORTC=segmente[i];
+				_delay_ms (500);
+			
+			}
+		}
+
+		return 0;
+	}
