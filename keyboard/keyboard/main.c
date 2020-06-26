@@ -15,7 +15,7 @@
 
 int keyboard () //Eingabe Routine
 {
-	DDRC = 0xf0;
+	DDRC = 0xf8;
 	while (1)
 	{
 		PORTC =  0x70;	//1110 0000			//aktivierezeile 1
@@ -53,11 +53,8 @@ int main(void)
 	
 	while(1)
 	{
-		int num = keyboard();
-		itoa(num, buffer, 10);
+		itoa(keyboard(), buffer, 10);
 		lcd_clrscr();
 		lcd_puts(buffer);
-		
 	}
 }
-
